@@ -1,6 +1,12 @@
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
+        int controlVariable = 1;
+
+        do
+        {
+
+        }while(controlVariable>0);
         // TODO: Use this method to run your experiments.
         FileReader file = new FileReader();
         SortingAlgorithms Sorter = new SortingAlgorithms();
