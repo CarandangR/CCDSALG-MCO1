@@ -4,7 +4,7 @@ public class Main {
         // TODO: Use this method to run your experiments.
         FileReader file = new FileReader();
         SortingAlgorithms Sorter = new SortingAlgorithms();
-        // Creation of Record arrays based on given file
+        //Creation of Record arrays based on given file
         Record[] rand100Ins = file.readFile("C:\\Users\\matth\\Documents\\LASALLECOLLEGE\\Year1Term3\\CCDSALG\\mco\\source\\data\\random100.txt"); //edit depending on storage
         Record[] rand100Selec = file.readFile("C:\\Users\\matth\\Documents\\LASALLECOLLEGE\\Year1Term3\\CCDSALG\\mco\\source\\data\\random100.txt"); //edit depending on storage
 
@@ -26,7 +26,7 @@ public class Main {
         Sorter.selectionSort(rand100Selec, rand100Selec.length);
         long end2 = System.currentTimeMillis();
         long execTime2 = end2-start2;
-        Sorter.allSorts(rand100);
+        //Sorter.allSorts(rand100);
         System.out.println("\nSelection Sort Execution time: "+ execTime2);
     }
 
