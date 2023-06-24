@@ -3,7 +3,8 @@
  */
 
 
-public class SortingAlgorithms {
+public class SortingAlgorithms 
+{
 
     /*
      * You may define additional helper functions here if you need to.
@@ -11,7 +12,8 @@ public class SortingAlgorithms {
      * they will only be used in this class.
      */
 
-    public void insertionSort(Record[] arr, int n) {
+    public void insertionSort(Record[] arr, int n) 
+    {
         // TODO: Implement this sorting algorithm here.
         int i, j;
         Record key = null;
@@ -27,10 +29,10 @@ public class SortingAlgorithms {
             System.out.println("\nkey ID: " + key.getIdNumber());
             arr[j+1] = key;
         }
-        printArr(arr, n);
     }
 
-    public void selectionSort(Record[] arr, int n) {
+    public void selectionSort(Record[] arr, int n) 
+    {
         // TODO: Implement this sorting algorithm here.
         int i, j, minIndex;
         for(i = 0; i < n; i++)
@@ -49,12 +51,20 @@ public class SortingAlgorithms {
             arr[minIndex] = arr[i];
             arr[i] = minim;
         }
-        printArr(arr, n);
     }
 
-    public void mergeSort(Record[] arr, int p, int r) {
+    public void mergeSort(Record[] arr, int p, int r) 
+    {
         // TODO: Implement this sorting algorithm here.
+        int q;
+        if(p < r)
+        {
+            q = (p + r)/2;
 
+            mergeSort(arr, p, q);
+            mergeSort(arr, q+1, r);
+            merge(arr, p, q, r);
+        }
     }
 
     /*
@@ -62,12 +72,74 @@ public class SortingAlgorithms {
      * ones given above. Make sure that the method accepts an array of
      * records
      */
-    public void printArr(Record[] arr, int size)
-    {
-        int i;
-        for(i = 0; i < size; i++)
+
+     public  void shellSort(Record[] arr)
+     {
+        int n = arr.length;
+        int i, j, gap;
+        Record tempRecord = new Record("null", 0);
+        
+        for(gap = n / 2; gap > 0; gap /= 2)
         {
-            System.out.println(i + " " + arr[i].getIdNumber() + " " +arr[i].getName());
+            for(i = gap; i < n; i++)
+            {
+                tempRecord = arr[i];
+                j = i;
+
+                while(j >= gap && arr[j - gap].getIdNumber() > tempRecord.getIdNumber())
+                {
+                    arr[j] = arr[j - gap];
+                    j -= gap;
+                }
+
+                arr[j] = tempRecord;
+            }
+        }
+     }
+
+     private void merge(Record[] arr, int p, int q, int r) 
+     {
+        int sizeL = q - p + 1, sizeR = r - q + 1;
+        Record[] arrL = new Record[sizeL];
+        Record[] arrR = new Record[sizeR];
+
+        for(int i = 0; i < sizeL; i++)
+        {
+            arrL[i] = arr[p+i];
+        }
+        for(int i = 0; i < sizeR; i++)
+        {
+            arrR[i] = arr[q + 1 + i];
+        }
+
+        int i = 0, j = 0, k = p;
+
+        while(i < sizeL && j < sizeR)
+        {
+            if(arrL[i].getIdNumber() <= arrR[j].getIdNumber()) 
+            {
+                arr[k] = arrL[i];
+                i++;
+            }
+            else 
+            {
+                arr[k] = arrR[j];
+                j++;
+            }
+            k++;
+        }
+
+        while(i < sizeL) 
+        {
+            arr[k] = arrL[i];
+            i++;
+            k++;
+        }
+        while(j < sizeR) 
+        {
+            arr[k] = arrR[j];
+            j++;
+            k++;
         }
     }
 }

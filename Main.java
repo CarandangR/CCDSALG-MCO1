@@ -26,7 +26,6 @@ public class Main {
         Sorter.selectionSort(rand100Selec, rand100Selec.length);
         long end2 = System.currentTimeMillis();
         long execTime2 = end2-start2;
-        //Sorter.allSorts(rand100);
         System.out.println("\nSelection Sort Execution time: "+ execTime2);
     }
 
