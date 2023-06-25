@@ -65,30 +65,37 @@ public class Main {
                 Sorter.insertionSort(rand100, rand100.length);
                 endTime = System.currentTimeMillis();
                 executionTime[0] = endTime - startTime;
+
                 startTime = System.currentTimeMillis();
                 Sorter.insertionSort(rand25k, rand25k.length);
                 endTime = System.currentTimeMillis();
                 executionTime[1] = endTime - startTime;
+
                 startTime = System.currentTimeMillis();
                 Sorter.insertionSort(rand50k, rand50k.length);
                 endTime = System.currentTimeMillis();
                 executionTime[2] = endTime - startTime;
+
                 startTime = System.currentTimeMillis();
                 Sorter.insertionSort(rand75k, rand75k.length);
                 endTime = System.currentTimeMillis();
                 executionTime[3] = endTime - startTime;
+
                 startTime = System.currentTimeMillis();
                 Sorter.insertionSort(rand100k, rand100k.length);
                 endTime = System.currentTimeMillis();
                 executionTime[4] = endTime - startTime;
+
                 startTime = System.currentTimeMillis();
                 Sorter.insertionSort(recAlmostSort, recAlmostSort.length);
                 endTime = System.currentTimeMillis();
                 executionTime[5] = endTime - startTime;
+
                 startTime = System.currentTimeMillis();
                 Sorter.insertionSort(recTotallyRev, recTotallyRev.length);
                 endTime = System.currentTimeMillis();
                 executionTime[6] = endTime - startTime;
+
                 algoUsed = "Insertion";
                 isSorted = true;
             }
@@ -99,6 +106,37 @@ public class Main {
                 Sorter.selectionSort(rand100, rand100.length);
                 endTime = System.currentTimeMillis();
                 executionTime[0] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.selectionSort(rand25k, rand25k.length);
+                endTime = System.currentTimeMillis();
+                executionTime[1] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.selectionSort(rand50k, rand50k.length);
+                endTime = System.currentTimeMillis();
+                executionTime[2] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.selectionSort(rand75k, rand75k.length);
+                endTime = System.currentTimeMillis();
+                executionTime[3] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.selectionSort(rand100k, rand100k.length);
+                endTime = System.currentTimeMillis();
+                executionTime[4] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.selectionSort(recAlmostSort, recAlmostSort.length);
+                endTime = System.currentTimeMillis();
+                executionTime[5] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.selectionSort(recTotallyRev, recTotallyRev.length);
+                endTime = System.currentTimeMillis();
+                executionTime[6] = endTime - startTime;
+
                 algoUsed = "Selection";
                 isSorted = true;
             }
@@ -106,9 +144,40 @@ public class Main {
             else if(choice == 3)
             {
                 startTime = System.currentTimeMillis();
-                Sorter.mergeSort(rand100, 0, rand100.length-2);
+                Sorter.mergeSort(rand100, 0, rand100.length-1);
                 endTime = System.currentTimeMillis();
                 executionTime[0] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.mergeSort(rand25k, 0, rand25k.length-1);
+                endTime = System.currentTimeMillis();
+                executionTime[1] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.mergeSort(rand50k, 0, rand50k.length-1);
+                endTime = System.currentTimeMillis();
+                executionTime[2] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.mergeSort(rand75k, 0, rand75k.length-1);
+                endTime = System.currentTimeMillis();
+                executionTime[3] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.mergeSort(rand100k, 0, rand100k.length-1);
+                endTime = System.currentTimeMillis();
+                executionTime[4] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.mergeSort(recAlmostSort, 0, recAlmostSort.length-1);
+                endTime = System.currentTimeMillis();
+                executionTime[5] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.mergeSort(recTotallyRev, 0, recTotallyRev.length-1);
+                endTime = System.currentTimeMillis();
+                executionTime[6] = endTime - startTime;
+
                 algoUsed = "Merge";
                 isSorted = true;
             }
@@ -119,6 +188,37 @@ public class Main {
                 Sorter.shellSort(rand100);
                 endTime = System.currentTimeMillis();
                 executionTime[0] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.shellSort(rand25k);
+                endTime = System.currentTimeMillis();
+                executionTime[1] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.shellSort(rand50k);
+                endTime = System.currentTimeMillis();
+                executionTime[2] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.shellSort(rand75k);
+                endTime = System.currentTimeMillis();
+                executionTime[3] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.shellSort(rand100k);
+                endTime = System.currentTimeMillis();
+                executionTime[4] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.shellSort(recAlmostSort);
+                endTime = System.currentTimeMillis();
+                executionTime[5] = endTime - startTime;
+
+                startTime = System.currentTimeMillis();
+                Sorter.shellSort(recTotallyRev);
+                endTime = System.currentTimeMillis();
+                executionTime[6] = endTime - startTime;
+
                 algoUsed = "Shell";
                 isSorted = true;
             }
@@ -133,6 +233,7 @@ public class Main {
                 System.out.println("Random 100k: "+executionTime[4]);
                 System.out.println("Random Almost Sorted: "+executionTime[5]);
                 System.out.println("Random Totally Reversed: "+executionTime[6]);
+
                 outputfile (algoUsed+"Rand100.txt", rand100);
                 outputfile (algoUsed+"Rand25k.txt", rand25k);
                 outputfile (algoUsed+"Rand50k.txt", rand50k);
@@ -149,6 +250,3 @@ public class Main {
         sc.close();
     }
 }
-
-
-
