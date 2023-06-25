@@ -26,7 +26,6 @@ public class SortingAlgorithms
                 arr[j+1] = arr[j];
                 j = j - 1;
             }
-            System.out.println("\nkey ID: " + key.getIdNumber());
             arr[j+1] = key;
         }
     }
@@ -44,7 +43,6 @@ public class SortingAlgorithms
                 {
                     minIndex = j;
                 }
-                System.out.println(arr[minIndex].getIdNumber() + " " + arr[j].getIdNumber());
             }
             Record minim = new Record("", 0);
             minim = arr[minIndex];
@@ -53,17 +51,64 @@ public class SortingAlgorithms
         }
     }
 
-    public void mergeSort(Record[] arr, int p, int r) 
+    private void merge(Record[] arr, int l, int m, int r)
     {
-        // TODO: Implement this sorting algorithm here.
-        int q;
-        if(p < r)
+        int n1 = m - l + 1;
+        int n2 = r - m;
+ 
+        Record[] L = new Record[n1];
+        Record[] R = new Record[n2];
+ 
+        for (int i=0; i<n1; ++i)
         {
-            q = (p + r)/2;
+            L[i] = arr[l + i];
+        }
+        for (int j=0; j<n2; ++j)
+        {
+            R[j] = arr[m + 1+ j];
+        }
 
-            mergeSort(arr, p, q);
-            mergeSort(arr, q+1, r);
-            merge(arr, p, q, r);
+        int i = 0, j = 0;
+        int k = l;
+
+        while (i < n1 && j < n2)
+        {
+            if (L[i].getIdNumber() <= R[j].getIdNumber())
+            {
+                arr[k] = L[i];
+                i++;
+            }
+            else
+            {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < n1)
+        {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2)
+        {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+ 
+    public void mergeSort(Record[] arr, int l, int r)
+    {
+        if (l < r)
+        {
+            int m = (l+r)/2;
+            mergeSort(arr, l, m);
+            mergeSort(arr , m+1, r);
+            merge(arr, l, m, r);
         }
     }
 
@@ -73,7 +118,7 @@ public class SortingAlgorithms
      * records
      */
 
-     public  void shellSort(Record[] arr)
+     public void shellSort(Record[] arr)
      {
         int n = arr.length;
         int i, j, gap;
@@ -96,50 +141,4 @@ public class SortingAlgorithms
             }
         }
      }
-
-     private void merge(Record[] arr, int p, int q, int r) 
-     {
-        int sizeL = q - p + 1, sizeR = r - q + 1;
-        Record[] arrL = new Record[sizeL];
-        Record[] arrR = new Record[sizeR];
-
-        for(int i = 0; i < sizeL; i++)
-        {
-            arrL[i] = arr[p+i];
-        }
-        for(int i = 0; i < sizeR; i++)
-        {
-            arrR[i] = arr[q + 1 + i];
-        }
-
-        int i = 0, j = 0, k = p;
-
-        while(i < sizeL && j < sizeR)
-        {
-            if(arrL[i].getIdNumber() <= arrR[j].getIdNumber()) 
-            {
-                arr[k] = arrL[i];
-                i++;
-            }
-            else 
-            {
-                arr[k] = arrR[j];
-                j++;
-            }
-            k++;
-        }
-
-        while(i < sizeL) 
-        {
-            arr[k] = arrL[i];
-            i++;
-            k++;
-        }
-        while(j < sizeR) 
-        {
-            arr[k] = arrR[j];
-            j++;
-            k++;
-        }
-    }
 }
