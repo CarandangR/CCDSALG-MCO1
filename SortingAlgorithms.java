@@ -118,8 +118,8 @@ public class SortingAlgorithms
      * records
      */
 
-     public void shellSort(Record[] arr)
-     {
+    public void shellSort(Record[] arr)
+    {
         int n = arr.length;
         int i, j, gap;
         Record tempRecord = new Record("null", 0);
@@ -140,5 +140,5 @@ public class SortingAlgorithms
                 arr[j] = tempRecord;
             }
         }
-     }
+    }
 }
